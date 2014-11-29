@@ -11,15 +11,18 @@ namespace :db do
     pitches = []
     filename =  Rails.root.join(*%w(db commandfx_2014.csv) )
     row_count = 0
+    already_seen_games = Set.new
+    already_seen_pitchers = Set.new
+    already_seen_batters = Set.new
     CSV.foreach(filename, :headers => true) do |row|
       if ((row_count % 1000) == 0 )
         puts "Processing row: #{row_count}"
       end
-      game = create_game(row)
+      game = create_game(row, already_seen_games)
       games << game unless game.blank?
-      pitcher = create_pitcher(row)
+      pitcher = create_pitcher(row, already_seen_pitchers)
       pitchers << pitcher unless pitcher.blank?
-      batter = create_batter(row)
+      batter = create_batter(row, already_seen_batters)
       batters << batter unless batter.blank?
       pitch = create_pitch(row)
       pitches << pitch unless pitch.blank?
@@ -45,8 +48,7 @@ namespace :db do
     
   end
   
-  def create_batter(row)
-    already_seen_set = Set.new
+  def create_batter(row, already_seen_set)
     id_column = "batter_id"
     if (already_seen_set.add?(row[id_column]))
       new_hash = {}
@@ -59,8 +61,7 @@ namespace :db do
     return nil
   end
   
-  def create_pitcher(row)
-    already_seen_set = Set.new
+  def create_pitcher(row, already_seen_set)
     id_column = "pitcher_id"
     if (already_seen_set.add?(row[id_column]))
       new_hash = {}
@@ -74,13 +75,12 @@ namespace :db do
     return nil
   end
   
-  def create_game(row)
+  def create_game(row, already_seen_set)
     #game_date from the CSV row is a sanitized value perhaps representing a date
     #I will assume it's just a unique identifier, and will use Faker to create a real-fake(!) date
     #("real" meaning it is a syntactically correct date, "fake" meaning that probability says 
     #that this was not the actual date of the game
-    already_seen_set = Set.new
-    if (already_seen_set.add?(row['game_id']))
+    if (already_seen_set.add?(row['game_date']))
       new_hash = {}
       new_hash['game_id'] = row['game_date']
       #Fake a date to help sort
@@ -101,6 +101,7 @@ namespace :db do
           new_hash[attr] = row[attr]
      end
      new_hash['game_id'] = row['game_date']
+     new_hash['top_of_inning'] = row['top_of_inning'] == 1
      return Pitch.new(new_hash)
      
     end
