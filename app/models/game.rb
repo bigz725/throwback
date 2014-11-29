@@ -1,4 +1,5 @@
 class Game < ActiveRecord::Base
-  set_primary_key :game_id
+  self.primary_key = 'game_id'
+  attr_accessible :game_id, :game_date
   # attr_accessible :title, :body
 end
