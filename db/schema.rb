@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141129002031) do
+ActiveRecord::Schema.define(:version => 20141129010514) do
 
   create_table "batters", :primary_key => "batter_id", :force => true do |t|
     t.string   "first_name"
@@ -34,5 +34,41 @@ ActiveRecord::Schema.define(:version => 20141129002031) do
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
   end
+
+  create_table "pitches", :force => true do |t|
+    t.string   "game_id"
+    t.string   "pitcher_id"
+    t.integer  "inning"
+    t.boolean  "top_of_inning"
+    t.integer  "game_atbat_number"
+    t.integer  "pitch_per_atbat"
+    t.integer  "pitch_per_game"
+    t.string   "batter_id"
+    t.string   "batter_stance",            :limit => 1
+    t.float    "strike_zone_top"
+    t.float    "strike_zone_bottom"
+    t.string   "pitch_result",             :limit => 1
+    t.text     "event_description"
+    t.string   "pitch_type",               :limit => 2
+    t.float    "pitch_initial_speed"
+    t.float    "pitch_speed_at_homeplate"
+    t.float    "pitch_deflection_break_x"
+    t.float    "pitch_deflection_break_z"
+    t.float    "pitch_plate_location_x"
+    t.float    "pitch_plate_location_z"
+    t.float    "pitch_initial_position_x"
+    t.float    "pitch_initial_position_z"
+    t.float    "command_pitch_location_x"
+    t.float    "command_pitch_location_z"
+    t.float    "command_mitt_location_x"
+    t.float    "command_mitt_location_z"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+  end
+
+  add_index "pitches", ["batter_id"], :name => "fk_batter_id"
+  add_index "pitches", ["game_id"], :name => "fk_game_id"
+  add_index "pitches", ["pitch_type"], :name => "pitch_type_idx"
+  add_index "pitches", ["pitcher_id"], :name => "fk_pitcher_id"
 
 end
