@@ -16,3 +16,5 @@
 /nbproject/private/commandfx_2014.csv
 commandfx_2014_simple.csv
 commandfx_2014.csv
+/nbproject*
+/nbproject/*
