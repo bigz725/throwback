@@ -1,0 +1,19 @@
+1.  After the data import, I ran this query, thinking it should identify duplicate pitches:
+select 
+pitch1.id, pitch2.id, 
+pitch1.game_id, pitch2.game_id, 
+pitch1.batter_id, pitch2.batter_id, 
+pitch1.pitcher_id, pitch2.pitcher_id, 
+pitch1.pitch_result, pitch2.pitch_result 
+from 
+pitches pitch1 
+inner join pitches pitch2 on 
+    (pitch1.id != pitch2.id and pitch1.game_id = pitch2.game_id and pitch1.pitch_per_game = pitch2.pitch_per_game 
+      and pitch1.inning = pitch2.inning and pitch1.top_of_inning = pitch2.top_of_inning and 
+      pitch1.pitcher_id = pitch2.pitcher_id);
+
+
+There are 20 records, each with "pitch_per_game" being 0.  Most of the records have different pitch results.
+Once those are excluded, it appears there are no duplicates.  I don't know what to make of a "pitch_per_game" being 0.
+
+  
