@@ -1,4 +1,7 @@
 Throwback::Application.routes.draw do
+  
+  
+  match 'reports/:id/pitcher_performance' => 'report#pitcher_performance' 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
