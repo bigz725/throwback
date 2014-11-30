@@ -11,10 +11,10 @@ def import_pitch_types
   types = CSV.read(filename, :headers => true)
   objs = []
   types.each do |row|
-    objs << PitchType.from_csv_row(row)
+    objs << PitchResult.from_csv_row(row)
   end
   binding.pry
-  PitchType.import objs
+  PitchResult.import objs
 end
 
 import_pitch_types

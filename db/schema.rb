@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141130222810) do
+ActiveRecord::Schema.define(:version => 20141130225626) do
 
   create_table "batters", :primary_key => "batter_id", :force => true do |t|
     t.string   "first_name"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20141130222810) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "pitch_types", :primary_key => "code", :force => true do |t|
+  create_table "pitch_results", :primary_key => "code", :force => true do |t|
     t.boolean  "strike"
     t.boolean  "swinging"
     t.boolean  "contact"
