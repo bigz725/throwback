@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'csv'
+def import_pitch_types
+  filename =  Rails.root.join(*%w(db pitch_types.csv) )
+  types = CSV.read(filename, :headers => true)
+  objs = []
+  types.each do |row|
+    objs << PitchType.from_csv_row(row)
+  end
+  binding.pry
+  PitchType.import objs
+end
+
+import_pitch_types

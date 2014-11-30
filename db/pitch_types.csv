@@ -1,0 +1,25 @@
+code,description,strike,swinging,contact,in_play,bunt,foul,pitchout,automatic,tip,blocked,intentional,hit_by_pitch,interference,out,run
+C,Called Strike,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+S,Swinging Strike,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+W,Swinging Strike (blocked),1,1,0,0,0,0,0,0,0,1,0,0,0,0,0
+F,Foul,1,1,1,0,0,1,0,0,0,0,0,0,0,0,0
+T,Foul Tip,1,1,1,0,0,1,0,0,1,0,0,0,0,0,0
+M,Missed Bunt Attempt,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0
+L,Foul Bunt,1,1,1,0,1,1,0,0,0,0,0,0,0,0,0
+O,Foul Tip On Bunt,1,1,1,0,1,1,0,0,1,0,0,0,0,0,0
+Q,Swinging on Pitchout,1,1,0,0,0,0,1,0,0,0,1,0,0,0,0
+R,Foul Ball on Pitchout,1,1,1,0,0,1,1,0,0,0,1,0,0,0,0
+A,Automatic Strike,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+B,Ball,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+*B,Blocked Ball In Dirt,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+I,Intentional Ball,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0
+P,Pitchout,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0
+V,Automatic Ball,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+H,Hit By Pitch,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+catcher_interf,Catcher Interference,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+X,"Hit Into Play, Out Recorded",1,1,1,1,0,0,0,0,0,0,0,0,0,1,0
+D,"Hit Into Play, No Out Recorded",1,1,1,1,0,0,0,0,0,0,0,0,0,0,0
+E,"Hit Into Play, run(s) recorded",1,1,1,1,0,0,0,0,0,0,0,0,0,0,1
+Y,Pitchout in play; out(s) recorded,1,1,1,1,0,0,1,0,0,0,0,0,0,1,0
+J,Pitchout in play; no out recorded,1,1,1,1,0,0,1,0,0,0,0,0,0,0,0
+Z,Pitchout in play; run scoring play,1,1,1,1,0,0,1,0,0,0,0,0,0,0,1

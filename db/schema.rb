@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141129010514) do
+ActiveRecord::Schema.define(:version => 20141130214240) do
 
   create_table "batters", :primary_key => "batter_id", :force => true do |t|
     t.string   "first_name"
@@ -25,6 +25,27 @@ ActiveRecord::Schema.define(:version => 20141129010514) do
     t.date     "game_date"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "pitch_types", :primary_key => "code", :force => true do |t|
+    t.boolean  "strike"
+    t.boolean  "swinging"
+    t.boolean  "contact"
+    t.boolean  "in_play"
+    t.boolean  "bunt"
+    t.boolean  "foul"
+    t.boolean  "pitchout"
+    t.boolean  "automatic"
+    t.boolean  "tip"
+    t.boolean  "blocked"
+    t.boolean  "intentional"
+    t.boolean  "hit_by_pitch"
+    t.boolean  "interference"
+    t.boolean  "out"
+    t.boolean  "run"
+    t.string   "description"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "pitchers", :primary_key => "pitcher_id", :force => true do |t|
@@ -47,7 +68,7 @@ ActiveRecord::Schema.define(:version => 20141129010514) do
     t.string   "batter_stance",            :limit => 1
     t.float    "strike_zone_top"
     t.float    "strike_zone_bottom"
-    t.string   "pitch_result",             :limit => 1
+    t.string   "pitch_result",             :limit => 20
     t.text     "event_description"
     t.string   "pitch_type",               :limit => 2
     t.float    "pitch_initial_speed"
@@ -62,8 +83,8 @@ ActiveRecord::Schema.define(:version => 20141129010514) do
     t.float    "command_pitch_location_z"
     t.float    "command_mitt_location_x"
     t.float    "command_mitt_location_z"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
   end
 
   add_index "pitches", ["batter_id"], :name => "fk_batter_id"
