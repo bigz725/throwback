@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141130214240) do
+ActiveRecord::Schema.define(:version => 20141130222810) do
 
   create_table "batters", :primary_key => "batter_id", :force => true do |t|
     t.string   "first_name"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(:version => 20141130214240) do
 
   add_index "pitches", ["batter_id"], :name => "fk_batter_id"
   add_index "pitches", ["game_id"], :name => "fk_game_id"
+  add_index "pitches", ["pitch_result"], :name => "fk_pitch_type"
   add_index "pitches", ["pitch_type"], :name => "pitch_type_idx"
   add_index "pitches", ["pitcher_id"], :name => "fk_pitcher_id"
 
