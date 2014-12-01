@@ -17,4 +17,12 @@ class Pitch < ActiveRecord::Base
     Pitch.joins(:pitch_result).where(:pitch_results => {:in_play => true, :out => false} )
   end
   
+  def self.vs_left
+    where(:batter_stance => 'L')
+  end
+  
+  def self.vs_right
+    where(:batter_stance => 'R')
+  end
+  
 end
