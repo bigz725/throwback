@@ -2,6 +2,30 @@
 # To change this template, choose Tools | Templates
 # and open the template in the editor.
 %>
+<script type="text/javascript">
+  $(function () {
+    $('#pitches_per_game_chart').highcharts({
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: 'Pitches per game for <%= "#{@pitcher.first_name} #{@pitcher.last_name}"  %> '
+        },
+        xAxis: {
+            categories: <%= raw @pitcher_game_ids %>
+        },
+        yAxis: {
+            title: {
+                text: 'Pitches'
+            }
+        },
+        series: [{
+            //name: 'Jane',
+            data: <%= raw @pitcher_pitches_per_game %>
+        }]
+    });
+});
+</script>
 
 <div id="pitches_per_game_chart">
   
