@@ -1,7 +1,8 @@
 Throwback::Application.routes.draw do
   
   
-  match 'reports/:id/pitcher_performance' => 'report#pitcher_performance' 
+  match 'reports/:pitcher_id/pitcher_performance' => 'report#pitcher_performance'
+  match 'reports/:pitcher_id/pitcher_performance/:game_id' => 'report#pitcher_performance_game'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
