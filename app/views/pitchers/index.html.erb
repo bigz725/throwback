@@ -1,0 +1,15 @@
+<h1>All pitchers</h1>
+<%= will_paginate  %>
+<table class="pitchers">
+  <tr>
+  <thead>
+  <td>ID</td>
+  <td>Name</td>
+  <td>Career report</td>
+  <td>Link to Games</td>
+  </thead>
+  </tr>
+  <%= render :partial => "pitcher", :collection => @pitchers %>
+</table>
+
+<%= will_paginate %>

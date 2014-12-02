@@ -1,0 +1,14 @@
+<table>
+  <thead>
+  <td><%= @pitcher.pitcher_id %> </td>
+  <td><%= "#{@pitcher.first_name} #{@pitcher.last_name}" %></td>
+  </thead>
+</table>
+
+<table id="games">
+  <% @pitcher.distinct_games.each do |game| %>
+  <tr>
+  <td><%= link_to "Performance for game #{game}", pitcher_game_report_path(@pitcher, game) %></td>
+  </tr>
+  <% end %>
+</table>

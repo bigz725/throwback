@@ -1,8 +1,9 @@
 Throwback::Application.routes.draw do
   
   
-  match 'reports/:pitcher_id/pitcher_performance' => 'report#pitcher_performance'
-  match 'reports/:pitcher_id/pitcher_performance/:game_id' => 'report#pitcher_performance_game'
+  match 'reports/:pitcher_id/pitcher_performance' => 'report#pitcher_performance', :as => 'pitcher_report'
+  match 'reports/:pitcher_id/pitcher_performance/:game_id' => 'report#pitcher_performance_game', :as => 'pitcher_game_report'
+  resources :pitchers, :only => [:index, :show]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

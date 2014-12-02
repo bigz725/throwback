@@ -1,0 +1,7 @@
+<tr>
+  <td><%= pitcher.pitcher_id   %></td>
+  <td><%= "#{pitcher.first_name} #{pitcher.last_name}" %></td>
+  <td><%= link_to 'Career', pitcher_report_path(pitcher)  %>
+  <td><%= link_to 'Show games', pitcher_path(pitcher)  %>
+  
+</tr>
