@@ -1,20 +1,11 @@
-<%#
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-%>
 
+
+<h1><%= "#{@pitcher.pitcher_id} - #{@pitcher.first_name} #{@pitcher.last_name}" %> Career charts</h1>
 <script>
    $(function() {
 $( "#tabs" ).tabs();
 });
 </script>
-<div id="pitch_breakdown">
-  
-</div>
-
-<div id="pitches_per_game">
-  
-</div>
 
 <div id="tabs">
 <ul>
@@ -29,3 +20,5 @@ $( "#tabs" ).tabs();
 </div>
 
 </div>
+
+<%= link_to "Back to pitchers", pitchers_path %>

@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   
   private
   def create_title_variable
-    @title = ''
+    @title = 'Throwback'
   end
 end
