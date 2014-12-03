@@ -1,0 +1,26 @@
+<script type="text/javascript">
+  $(function () {
+    $('#velocity_chart').highcharts({
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: 'Pitch velocity for <%= "#{@pitcher.first_name} #{@pitcher.last_name}"  %> in game <%= @game.id %> '
+        },
+        xAxis: {
+            categories: <%= raw((1..@pitches.count).to_a) %>
+        },
+        yAxis: {
+            title: {
+                text: 'Pitches'
+            }
+        },
+        series: [{
+            name: 'Pitches',
+            data: <%= raw @pitches.map(&:pitch_initial_speed) %>
+        }]
+    });
+});
+</script>
+
+<div id="velocity_chart"></div>

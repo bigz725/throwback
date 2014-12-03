@@ -1,6 +1,22 @@
-<%#
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-%>
+<h1><%= "#{@pitcher.pitcher_id} - #{@pitcher.first_name} #{@pitcher.last_name}" %> performance in game <%=@game.game_id %></h1>
+<script>
+   $(function() {
+$( "#tabs" ).tabs();
+});
+</script>
 
-<%= "pitcher_performance_game.html" %>
+<div id="tabs">
+<ul>
+<li><a href="#tabs-1">Pitch Breakdown</a></li>
+<li><a href="#tabs-2">Velocity chart</a></li>
+</ul>
+<div id="tabs-1">
+  <%=  render 'pitch_breakdown' %>
+</div>
+<div id="tabs-2">
+<%=  render 'velocity_chart' %>
+</div>
+
+</div>
+
+<%= link_to "Back to pitchers", pitchers_path %>

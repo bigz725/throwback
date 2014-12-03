@@ -7,4 +7,14 @@ class ReportController < ApplicationController
     @pitches = Pitch.where(:pitcher_id => params[:pitcher_id])
     @title = "#{@title} - Career report for #{@pitcher.first_name} #{@pitcher.last_name}"
   end
+  
+  def pitcher_performance_game
+    @pitcher = Pitcher.where(:pitcher_id => params[:pitcher_id]).first
+    @game = Game.where(:game_id => params[:game_id]).first
+    @pitches = Pitch.where(:pitcher_id => params[:pitcher_id],:game_id => params[:game_id] )
+    
+    
+    @title = "#{@title} - Game #{@game.game_id} report for #{@pitcher.first_name} #{@pitcher.last_name}"
+
+  end
 end

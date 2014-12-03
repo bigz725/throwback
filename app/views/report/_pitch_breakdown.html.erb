@@ -3,4 +3,4 @@
 # and open the template in the editor.
 %>
 
-<%= pie_chart @pitches.group(:pitch_type).count %>
+<%= pie_chart @pitches.group(:pitch_type).order(:pitch_type).count %>
