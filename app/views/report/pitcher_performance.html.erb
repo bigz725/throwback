@@ -3,11 +3,29 @@
 # and open the template in the editor.
 %>
 
-
+<script>
+   $(function() {
+$( "#tabs" ).tabs();
+});
+</script>
 <div id="pitch_breakdown">
-  <%=  render 'pitch_breakdown' %>
+  
 </div>
 
 <div id="pitches_per_game">
-  <%=  render 'pitches_per_game' %>
+  
+</div>
+
+<div id="tabs">
+<ul>
+<li><a href="#tabs-1">Pitch Breakdown</a></li>
+<li><a href="#tabs-2">Pitches Per Game</a></li>
+</ul>
+<div id="tabs-1">
+  <%=  render 'pitch_breakdown' %>
+</div>
+<div id="tabs-2">
+<%=  render 'pitches_per_game' %>
+</div>
+
 </div>
