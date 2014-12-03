@@ -1,0 +1,8 @@
+<div class="searchform">
+  <%= form_tag pitchers_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search], :placeholder => "Name or ID" %>
+    <%= submit_tag "Find pitcher", :name => nil %>
+  </p>
+  <% end %>
+</div>
