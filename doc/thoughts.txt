@@ -17,3 +17,15 @@ There are 20 records, each with "pitch_per_game" being 0.  Most of the records h
 Once those are excluded, it appears there are no duplicates.  I don't know what to make of a "pitch_per_game" being 0.
 
   
+
+
+2.  Attempting to determine the precise meaning of pitch_plate_location_x and _z:
+My thoughts with X are that 0 is right down the middle of the plate.  Since the plate is 17 inches across, that means
+the horizontal strike zone values should be between -8.5 inches and +8.5 inches (the stat is given in feet, so conversion is 
+necessary).  
+
+There are approximately 40,000 pitches that were not swung at where the absolute value of x was greater than 8.5/12 feet.
+Approximately 32,000 of them (80%) were called balls; a little over 600 (1.5%) were intentional balls, pitchouts, or resulted
+in a hit batter.  The remaining were called strikes.
+
+Balls are a different story, but it's late at the moment.
