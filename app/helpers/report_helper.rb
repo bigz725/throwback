@@ -37,7 +37,7 @@ module ReportHelper
         if (hash[:data][type] != nil)
           rollup[rollup_key] = hash[:data][type]#.to_s
         else
-          rollup[rollup_key] = 'N/A'
+          rollup[rollup_key] = 0
         end
       end
       retval << rollup        
