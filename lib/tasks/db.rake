@@ -91,7 +91,7 @@ namespace :db do
   end
   
   def create_pitch(row)
-    exclude_columns = ['created_at', 'updated_at', 'id']
+    exclude_columns = ['created_at', 'updated_at', 'id', 'pitch_result']
     ##Pitch is the only class with a generated id, everything else gets all of its attributes from the CSV
     #We only want column names that can be fetched from the CSV, so exclude 'id', 'created_at', and 'updated_at'
     column_names = Pitch.column_names.delete_if{|col| exclude_columns.include?(col)}
@@ -102,8 +102,9 @@ namespace :db do
      end
      new_hash['game_id'] = row['game_date']
      new_hash['top_of_inning'] = row['top_of_inning'] == 1
-     return Pitch.new(new_hash)
-     
+     retval = Pitch.new(new_hash)
+     retval.pitch_result = PitchResult.find(row['pitch_result'])
+     retval
     end
 
 
