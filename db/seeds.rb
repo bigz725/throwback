@@ -13,7 +13,6 @@ def import_pitch_types
   types.each do |row|
     objs << PitchResult.from_csv_row(row)
   end
-  binding.pry
   PitchResult.import objs
 end
 
