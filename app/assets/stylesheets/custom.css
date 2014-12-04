@@ -178,14 +178,3 @@ ul.users{
     color: #f00
 }
 
-.winning_bet {
-    color: green;
-}
-
-.losing_bet {
-    color: red;
-}
-
-.edit_link {
-    font-size: smaller;
-}
