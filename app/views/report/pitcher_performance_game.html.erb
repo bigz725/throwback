@@ -18,19 +18,22 @@ $( "#tabs" ).tabs();
 <%=  render 'velocity_chart' %>
 </div>
 <div id="tabs-3">
-  <table>
+  <table id="rollup_report" class="rollup_report">
   <thead>
-  <td>Pitch Type</td>
-  <td>Avg. Velocity</td>
-  <td>Max Velocity</td>
-  <td>Horizontal break</td>
-  <td>Count</td>
-  <td>Strikes (pct)</td>
-  <td>Swings (pct)</td>
-  <td>Whiffs (pct)</td>
-  <td>In play, no out</td>
+    <tr>
+    <th>Pitch Type</th>
+    <th>Avg. Velocity</th>
+    <th>Max Velocity</th>
+    <th>Horizontal break</th>
+    <th>Count</th>
+    <th>Strikes (pct)</th>
+    <th>Swings (pct)</th>
+    <th>Whiffs (pct)</th>
+    <th>In play, no out</th>
   </thead>
-  <%= render :partial => 'pitch_statistics', :collection => @pitch_rollup, :as => :line %>
+  <tbody>
+    <%= render :partial => 'pitch_statistics', :collection => @pitch_rollup, :as => :line %>
+  </tbody>
 </table>
 </div> 
 

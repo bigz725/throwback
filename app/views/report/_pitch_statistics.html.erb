@@ -7,15 +7,15 @@
   <td>Swings (pct)</td>
   <td>Whiffs (pct)</td>
   <td>In play, no out</td> -->
-
+<% percentage_format_string = "%2.1f%" %>
 <tr>
   <td><%= line[:type] %></td>
   <td><%= "%0.02f" % line[:average_velocity] %></td>
   <td><%= line[:max_velocity] %></td>
   <td><%= "%0.02f" % line[:horiz_break] %></td>
   <td><%= line[:pitch_type_count] %></td>
-  <td><%= line[:strike_count] %>(<%= "%0.02f" % (line[:strike_count]/line[:pitch_type_count].to_f)  %>)</td>
-  <td><%= line[:swing_count] %>(<%= "%0.02f" % (line[:swing_count]/line[:pitch_type_count].to_f)  %>)</td>
-  <td><%= line[:whiff_count] %>(<%= "%0.02f" % (line[:whiff_count]/line[:pitch_type_count].to_f)  %>)</td>
+  <td><%= line[:strike_count] %>(<%= percentage_format_string % (100 * (line[:strike_count]/line[:pitch_type_count].to_f))  %>)</td>
+  <td><%= line[:swing_count] %>(<%= percentage_format_string % (100 *(line[:swing_count]/line[:pitch_type_count].to_f))  %>)</td>
+  <td><%= line[:whiff_count] %>(<%= percentage_format_string % (100*(line[:whiff_count]/line[:pitch_type_count].to_f))  %>)</td>
   <td><%= line[:ipno] %></td>
 </tr>

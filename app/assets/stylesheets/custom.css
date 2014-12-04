@@ -1,6 +1,6 @@
 
 .container{
-    width: 800px;
+    width: 900px;
 }
 
 body{
@@ -133,7 +133,9 @@ td.sidebar{
 {
     color: #fff
 }
-
+#rollup_report{
+    
+}
 #error_explanation{
     width: 400px;
     border: 2px solid red;
