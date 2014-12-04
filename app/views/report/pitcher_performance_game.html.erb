@@ -7,8 +7,9 @@ $( "#tabs" ).tabs();
 
 <div id="tabs">
 <ul>
-<li><a href="#tabs-1">Pitch Breakdown</a></li>
+<li><a href="#tabs-1">Pitch choice</a></li>
 <li><a href="#tabs-2">Velocity chart</a></li>
+<li><a href="#tabs-3">Pitch Statistics</a>
 </ul>
 <div id="tabs-1">
   <%=  render 'pitch_breakdown' %>
@@ -16,6 +17,24 @@ $( "#tabs" ).tabs();
 <div id="tabs-2">
 <%=  render 'velocity_chart' %>
 </div>
+<div id="tabs-3">
+  <table>
+  <thead>
+  <td>Pitch Type</td>
+  <td>Avg. Velocity</td>
+  <td>Max Velocity</td>
+  <td>Horizontal break</td>
+  <td>Count</td>
+  <td>Strikes (pct)</td>
+  <td>Swings (pct)</td>
+  <td>Whiffs (pct)</td>
+  <td>In play, no out</td>
+  </thead>
+  <%= render :partial => 'pitch_statistics', :collection => @pitch_rollup, :as => :line %>
+</table>
+</div> 
+
+     
 
 </div>
 

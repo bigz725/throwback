@@ -1,0 +1,21 @@
+<!--  <td>Pitch Type</td>
+  <td>Avg. Velocity</td>
+  <td>Max Velocity</td>
+  <td>Horizontal break</td>
+  <td>Count</td>
+  <td>Strikes (pct)</td>
+  <td>Swings (pct)</td>
+  <td>Whiffs (pct)</td>
+  <td>In play, no out</td> -->
+
+<tr>
+  <td><%= line[:type] %></td>
+  <td><%= "%0.02f" % line[:average_velocity] %></td>
+  <td><%= line[:max_velocity] %></td>
+  <td><%= "%0.02f" % line[:horiz_break] %></td>
+  <td><%= line[:pitch_type_count] %></td>
+  <td><%= line[:strike_count] %>(<%= "%0.02f" % (line[:strike_count]/line[:pitch_type_count].to_f)  %>)</td>
+  <td><%= line[:swing_count] %>(<%= "%0.02f" % (line[:swing_count]/line[:pitch_type_count].to_f)  %>)</td>
+  <td><%= line[:whiff_count] %>(<%= "%0.02f" % (line[:whiff_count]/line[:pitch_type_count].to_f)  %>)</td>
+  <td><%= line[:ipno] %></td>
+</tr>
