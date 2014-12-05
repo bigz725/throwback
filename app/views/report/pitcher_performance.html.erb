@@ -21,4 +21,5 @@ $( "#tabs" ).tabs();
 
 </div>
 
-<%= link_to "Back to pitchers", pitchers_path %>
+<p><%= link_to "Back to pitchers", pitchers_path %></p>
+<p><%= link_to "Games list for #{@pitcher.first_name} #{@pitcher.last_name}", pitcher_path(@pitcher) %></p>
