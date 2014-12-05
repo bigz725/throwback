@@ -94,7 +94,7 @@ namespace :db do
     exclude_columns = ['created_at', 'updated_at', 'id', 'pitch_result_code']
     ##Pitch is the only class with a generated id, everything else gets all of its attributes from the CSV
     #We only want column names that can be fetched from the CSV, so exclude 'id', 'created_at', and 'updated_at'
-    column_names = Pitch.column_names.delete_if{|col| exclude_columns.include?(col)}
+    column_names = Pitch.column_names.reject{|col| exclude_columns.include?(col)}
     
      new_hash = {}
      column_names.each do |attr|
