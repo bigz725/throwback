@@ -2,7 +2,7 @@ class Pitch < ActiveRecord::Base
   belongs_to :pitcher
   belongs_to :game
   belongs_to :batter
-  belongs_to :pitch_result, :foreign_key => 'pitch_result_code'
+  belongs_to :pitch_result, :foreign_key => 'pitch_result_code', :primary_key => 'code'
   attr_accessible *column_names
   
   def self.strikes
