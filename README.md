@@ -29,3 +29,10 @@ If you try to do a rake db:setup (which automatically calls rake db:seed) instea
 Rails will create the tables based on schema.rb,
 which results in integer primary keys, which doesn't work out well for this app.</p>
 
+<p>Using the app:</p>
+<p>From the landing page, click on the link to take you to the pitcher index.  You can search by
+pitcher name or ID, and partial terms are fine.  The names will be random, so it 
+might be best to search only by ID at first.  Click on the 'career' link to see data for
+all pitches by that pitcher from the data set.  Click on the 'Show Games' link to pick a game
+for a pitcher.  From there, charts and data are available for that pitcher's pitches in that game.</p>
+
