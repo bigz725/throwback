@@ -2,15 +2,18 @@
 <%= render 'search_form' %>
 <%= will_paginate  %>
 <table class="pitchers">
-  <tr>
   <thead>
-  <td>ID</td>
-  <td>Name</td>
-  <td>Career report</td>
-  <td>Link to Games</td>
+    <tr>
+      <td>ID</td>
+      <td>Name</td>
+      <td>Throws</td>
+      <td>Career report</td>
+      <td>Link to Games</td>
+    </tr>
   </thead>
-  </tr>
-  <%= render :partial => "pitcher", :collection => @pitchers %>
+  <tbody>
+    <%= render :partial => "pitcher", :collection => @pitchers %>
+  </tbody>
 </table>
 
 <%= will_paginate %>
