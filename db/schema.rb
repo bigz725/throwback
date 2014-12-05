@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141130225626) do
+ActiveRecord::Schema.define(:version => 20141205005010) do
 
   create_table "batters", :primary_key => "batter_id", :force => true do |t|
     t.string   "first_name"
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(:version => 20141130225626) do
     t.string   "batter_stance",            :limit => 1
     t.float    "strike_zone_top"
     t.float    "strike_zone_bottom"
-    t.string   "pitch_result",             :limit => 20
+    t.string   "pitch_result_code",        :limit => 20
     t.text     "event_description"
     t.string   "pitch_type",               :limit => 2
     t.float    "pitch_initial_speed"
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(:version => 20141130225626) do
 
   add_index "pitches", ["batter_id"], :name => "fk_batter_id"
   add_index "pitches", ["game_id"], :name => "fk_game_id"
-  add_index "pitches", ["pitch_result"], :name => "fk_pitch_type"
+  add_index "pitches", ["pitch_result_code"], :name => "fk_pitch_type"
   add_index "pitches", ["pitch_type"], :name => "pitch_type_idx"
   add_index "pitches", ["pitcher_id"], :name => "fk_pitcher_id"
 
