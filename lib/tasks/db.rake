@@ -42,7 +42,7 @@ namespace :db do
   
   desc "Remove the data from the environment"
   task :clear => :environment do
-    ["pitches", "games", "batters", "pitchers"].each do |table|
+    ["pitches", "games", "batters", "pitchers", "pitch_results"].each do |table|
       Pitcher.connection.execute("delete from #{table};")
     end
     
