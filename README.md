@@ -2,14 +2,15 @@ throwback
 =========
 
 Baseball intelligence
-Running the app:
-
+<p>Running the app:</p>
+<p>
 Prerequisites:
 <ol>
 <li>Ruby (I used 2.1.4 but any version 1.9.3 or greater should work)</li>
 <li>MySQL and a user capable of creating other users and databases</li>
 </ol>
-
+</p>
+<p>
 Steps (please note, as of 12/4/2014, these have changed):
 <ol>
 <li>From the application root (throwback), run bundle install</li>
@@ -19,6 +20,7 @@ Steps (please note, as of 12/4/2014, these have changed):
 <li>rake db:seed (installs the seed data handling pitches and outcomes)</li>
 <li>rake db:prime (imports the PitchFx data from the commandfx_2014.csv file, may take some time)</li>
 </ol>
+</p>
 <p>Now the application should be prepared in the development environment for the
 usual rails commands (console, server, etc.). </p> 
 <p>Note, the db:migrate command is used because I used varchars for primary keys,
