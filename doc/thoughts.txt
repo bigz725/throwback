@@ -1,3 +1,11 @@
+I decided to break the data into 4 entities: game, batter, pitcher, and pitches.  
+I also created a “seed” table for the “pitch call codes” or “pitch_result”.  
+Using the Rails terminology, where “belongs_to” implies that that table contains 
+the foreign key, the pitch entity belongs to a game, a pitcher, and a pitch result.  
+A pitcher has_many pitches.  For the most part, with this data set, the game, 
+batter and pitcher entities are little more than grouping points for pitches.  
+The pitches table is where the PitchFX data is stored.
+
 1.  After the data import, I ran this query, thinking it should identify duplicate pitches:
 select 
 pitch1.id, pitch2.id, 
