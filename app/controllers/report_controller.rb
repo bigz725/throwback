@@ -17,4 +17,13 @@ class ReportController < ApplicationController
     @title = "#{@title} - Game #{@game.game_id} report for #{@pitcher.first_name} #{@pitcher.last_name}"
 
   end
+  
+  def velocity_data
+    pitches = Pitch.where(:pitcher_id => params[:pitcher_id],
+      :game_id => params[:game_id] ).order(:pitch_per_game).map{|x| [x.pitch_type, x.pitch_initial_speed ]}
+    respond_to do |format|
+      format.js {  render :json => pitches}
+      format.json {binding.pry; pitches.to_json}
+    end
+  end
 end
