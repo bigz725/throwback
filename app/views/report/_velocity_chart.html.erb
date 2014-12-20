@@ -23,7 +23,7 @@
               text: 'Pitch velocity for <%= "#{@pitcher.first_name} #{@pitcher.last_name}"  %> in game <%= @game.id %> '
           },
           xAxis: {
-              categories: <%= raw((1..@pitches.count).to_a) %>
+              //type: 'category'
           },
           yAxis: {
               title: {
