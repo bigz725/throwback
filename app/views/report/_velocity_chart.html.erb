@@ -14,7 +14,7 @@
         cache: false
     });
 }
-  $(document).ready(function () {
+  $('#tabs').on('tabsactivate', function (event, ui) {
     chart = new Highcharts.Chart({
         chart: {
             renderTo: 'velocity_chart',
