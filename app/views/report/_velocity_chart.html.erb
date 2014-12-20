@@ -4,41 +4,38 @@
     $.ajax({
         url: '<%= pitcher_game_velocity_url(params[:pitcher_id], params[:game_id])%>',
         success: function(data) {
-            //var series = chart.series[0],
-                //shift = series.data.length > 20; // shift if the series is 
-                                                 // longer than 20
-
-            // add the point
             chart.series[0].setData($.parseJSON(data) );// addPoint(point, true, shift);
         },
         cache: false
     });
 }
   $('#tabs').on('tabsactivate', function (event, ui) {
-    chart = new Highcharts.Chart({
-        chart: {
-            renderTo: 'velocity_chart',
-            zoomType: 'x',
-            events: {
-              load: requestData
-            }
-        },
-        title: {
-            text: 'Pitch velocity for <%= "#{@pitcher.first_name} #{@pitcher.last_name}"  %> in game <%= @game.id %> '
-        },
-        xAxis: {
-            categories: <%= raw((1..@pitches.count).to_a) %>
-        },
-        yAxis: {
-            title: {
-                text: 'MPH'
-            }
-        },
-        series: [{
-            name: 'Velocity',
-            data: []
-        }]
-    });
+    if (ui.newPanel.is($('#tabs-2'))) {
+      chart = new Highcharts.Chart({
+          chart: {
+              renderTo: 'velocity_chart',
+              zoomType: 'x',
+              events: {
+                load: requestData
+              }
+          },
+          title: {
+              text: 'Pitch velocity for <%= "#{@pitcher.first_name} #{@pitcher.last_name}"  %> in game <%= @game.id %> '
+          },
+          xAxis: {
+              categories: <%= raw((1..@pitches.count).to_a) %>
+          },
+          yAxis: {
+              title: {
+                  text: 'MPH'
+              }
+          },
+          series: [{
+              name: 'Velocity',
+              data: []
+          }]
+      });
+    }
 });
 </script>
 
