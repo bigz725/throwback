@@ -3,8 +3,17 @@
   function requestData() {
     $.ajax({
         url: '<%= pitcher_game_velocity_url(params[:pitcher_id], params[:game_id])%>',
-        success: function(data) {
-            chart.series[0].setData($.parseJSON(data) );// addPoint(point, true, shift);
+        dataType: 'json',
+        success: function(response) {
+            data = response;
+            title = "Pitch velocity for " + data.pitcher.first_name + " " + data.pitcher.last_name
+            chart.setTitle({text: title});
+            chart.series[0].setData(data.pitches );            
+        },
+        error: function(request, status, error) {
+          alert("Error");
+        },
+        complete: function() {
         },
         cache: false
     });
@@ -18,9 +27,6 @@
               events: {
                 load: requestData
               }
-          },
-          title: {
-              text: 'Pitch velocity for <%= "#{@pitcher.first_name} #{@pitcher.last_name}"  %> in game <%= @game.id %> '
           },
           xAxis: {
               //type: 'category'
