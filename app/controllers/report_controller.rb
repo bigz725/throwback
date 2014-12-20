@@ -22,7 +22,8 @@ class ReportController < ApplicationController
     pitches = Pitch.where(:pitcher_id => params[:pitcher_id],
       :game_id => params[:game_id] ).order(:pitch_per_game).map{|x| [x.pitch_type,x.pitch_initial_speed,x.pitch_per_game ]}
     pitcher = Pitcher.find params[:pitcher_id]
-    response = {:pitches => pitches, :pitcher => pitcher}
+    game = Game.find params[:game_id]
+    response = {:pitches => pitches, :pitcher => pitcher, :game => game}
     respond_to do |format|
       format.js {  render :json => response}
       format.json {render :json => response}

@@ -7,7 +7,8 @@
         success: function(response) {
             data = response;
             title = "Pitch velocity for " + data.pitcher.first_name + " " + data.pitcher.last_name
-            chart.setTitle({text: title});
+            subtitle = data.game.game_id + " on " + data.game.game_date
+            chart.setTitle({text: title}, {text: subtitle});
             chart.series[0].setData(data.pitches );            
         },
         error: function(request, status, error) {
