@@ -29,4 +29,18 @@ class ReportController < ApplicationController
       format.json {render :json => response}
     end
   end
+  
+  def pitches_per_game
+    pitcher = Pitcher.where(:pitcher_id => params[:pitcher_id]).first
+    pitches = pitcher.pitches.group(:game_id).count
+    game_array = []
+    pitches.each_pair do |k, v|
+      game_array << {name: k, y: v, url: pitcher_game_report_url(pitcher.pitcher_id, k) }
+    end
+    response = {games: game_array, pitcher: pitcher}
+    respond_to do |format|
+      format.js {  render :json => response}
+      format.json {render :json => response}
+    end
+  end
 end

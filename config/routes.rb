@@ -4,6 +4,7 @@ Throwback::Application.routes.draw do
   root :to => "welcome#index"
 
   match 'reports/:pitcher_id/pitcher_performance' => 'report#pitcher_performance', :as => 'pitcher_report'
+  match 'reports/:pitcher_id/pitches_per_game' => 'report#pitches_per_game', :as => 'pitches_per_game'
   match 'reports/:pitcher_id/pitcher_performance/:game_id' => 'report#pitcher_performance_game', :as => 'pitcher_game_report'
   match 'reports/:pitcher_id/pitcher_performance/:game_id/velocity' => 'report#velocity_data', :as => 'pitcher_game_velocity'
   resources :pitchers, :only => [:index, :show]

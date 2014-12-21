@@ -1,29 +1,52 @@
-<%#
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-%>
 <script type="text/javascript">
-  $(function () {
-    $('#pitches_per_game_chart').highcharts({
-        chart: {
-            type: 'line'
+  
+  var chart;
+  function requestData() {
+    $.ajax({
+        url: '<%= pitches_per_game_url(params[:pitcher_id])%>',
+        dataType: 'json',
+        success: function(response) {
+            data = response;
+            title = "Pitches per game for " + data.pitcher.first_name + " " + data.pitcher.last_name;
+            chart.setTitle({text: title});
+            chart.series[0].setData(data.games );            
         },
-        title: {
-            text: 'Pitches per game for <%= "#{@pitcher.first_name} #{@pitcher.last_name}"  %> '
+        error: function(request, status, error) {
+          alert("Error");
         },
-        xAxis: {
-            categories: <%= raw @pitcher_game_ids %>
+        complete: function() {
         },
-        yAxis: {
-            title: {
-                text: 'Pitches'
-            }
-        },
-        series: [{
-            name: 'Pitches',
-            data: <%= raw @pitcher_pitches_per_game %>
-        }]
+        cache: false
     });
+}
+  $('#tabs').on('tabsactivate', function (event, ui) {
+    if (ui.newPanel.is($('#tabs-2'))) {
+      chart = new Highcharts.Chart({
+          chart: {
+              renderTo: 'pitches_per_game_chart',
+              events: {
+                load: requestData
+              },
+              zoomType: 'x',
+              type: 'line'
+          },
+          title: {
+              
+          },
+          xAxis: {
+              categories: <%= raw @pitcher_game_ids %>
+          },
+          yAxis: {
+              title: {
+                  text: 'Pitches'
+              }
+          },
+          series: [{
+              name: 'Pitches',
+              data: []
+          }]
+      });
+   }
 });
 </script>
 
