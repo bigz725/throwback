@@ -9,6 +9,6 @@ class Pitcher < ActiveRecord::Base
   #so work around with raw sql
   #in a prod environment I'd try upgrading Rails to 4, not sure I have time at the moment
   def distinct_games
-    Game.find_by_sql(["select distinct game_id from pitches where pitcher_id = ?", pitcher_id]).map(&:game_id)
+    Game.find_by_sql(["select distinct game_id from pitches where pitcher_id = ? order by game_id asc", pitcher_id]).map(&:game_id)
   end
 end
